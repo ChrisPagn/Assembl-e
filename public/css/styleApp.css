@@ -1,4 +1,77 @@
+/* Style global du body */
 body {
     background-color: #faf8f2; /* blanc cassé doux */
     font-family: Cambria, "Times New Roman", serif;
+    opacity: 0;                 /* pour le fade-in */
+    transition: opacity 0.3s ease;
+}
+
+/* Quand la page est chargée */
+body.page-loaded {
+    opacity: 1;
+}
+
+/* --- Overlay de transition de page --- */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 248, 242, 0.95); /* voile légèrement plus opaque */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Quand la transition est active */
+.page-transition.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Wrapper pour mieux centrer */
+.page-transition-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Colombe animée */
+.transition-dove {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(100vw);
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4)); /* halo doré subtil */
+}
+
+/* Quand l'overlay est actif, lancer le vol */
+.page-transition.active .transition-dove {
+    animation: doveFly 3.0s ease-out forwards;
+}
+
+/* Animation de vol de droite vers gauche */
+@keyframes doveFly {
+    0% {
+        transform: translateY(-50%) translateX(100vw) scale(0.95) rotate(-5deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(-55%) translateX(50vw) scale(1) rotate(0deg);
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50%) translateX(-120px) scale(1) rotate(5deg);
+        opacity: 0;
+    }
 }

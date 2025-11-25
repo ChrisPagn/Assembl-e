@@ -20,6 +20,15 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
+{{-- Overlay de transition de page --}}
+<div id="page-transition" class="page-transition">
+    <div class="page-transition-inner">
+        <img src="{{ asset('images/Logo_Colombe.png') }}"
+             alt="Colombe"
+             class="transition-dove">
+    </div>
+</div>
+
 {{-- Nav manu --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
@@ -108,5 +117,9 @@
 
     {{-- Bootstrap JS via CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{{-- Script de transitions --}}
+<script src="{{ asset('js/page-transitions.js') }}"></script>
+
 </body>
 </html>
