@@ -1,0 +1,42 @@
+.footer-links {
+    background: #f8f9fa;
+    padding: 40px 0 20px;
+}
+
+.footer-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 5px;
+}
+
+.footer-list a {
+    text-decoration: none;
+    color: #28a745;
+}
+
+.footer-list a:hover {
+    text-decoration: underline;
+}
+
+.footer-separator {
+    margin: 20px auto;
+    width: 70%;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #666;
+}

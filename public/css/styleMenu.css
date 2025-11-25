@@ -1,0 +1,95 @@
+/* --- NAV : liens (soulignement + ligne verte animée) --- */
+.custom-nav-link {
+    position: relative;
+    margin: 0 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #ffffff;
+}
+
+.custom-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    background-color: #28a745; /* Vert Bootstrap */
+    transition: width 0.25s ease-out;
+}
+
+.custom-nav-link:hover::after,
+.custom-nav-link:focus::after {
+    width: 100%;
+}
+
+/* --- Checkbox de contrôle du menu (cachée) --- */
+.nav-toggle {
+    display: none;
+}
+
+/* --- Bouton burger --- */
+.custom-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+    display: none; /* caché par défaut (desktop) */
+}
+
+.custom-toggler:focus {
+    box-shadow: none;
+}
+
+.custom-toggler .toggler-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Layout desktop (>= 992px) --- */
+@media (min-width: 992px) {
+    #mainNavbar {
+        display: flex !important;
+    }
+}
+
+/* --- Layout mobile/tablette (< 992px) --- */
+@media (max-width: 991.98px) {
+
+    .custom-toggler {
+        display: inline-block;
+    }
+
+    #mainNavbar {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    /* Quand on coche le burger -> menu ouvert */
+    .nav-toggle:checked ~ #mainNavbar {
+        max-height: 400px; /* ajuste si ton menu est plus grand */
+    }
+
+    /* Burger -> croix lorsque menu ouvert */
+    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Option : ouvrir au survol sur les écrans avec souris */
+    @media (hover: hover) {
+        .navbar:hover .nav-toggle:not(:checked) ~ #mainNavbar {
+            max-height: 400px;
+        }
+    }
+}
+
