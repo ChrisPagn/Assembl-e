@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     {{-- Style css --}}
+    <link rel="stylesheet" href="{{ asset('css/styleApp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/styleFooter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
@@ -23,13 +24,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('accueil') }}">
-            <img src="{{ asset('images/logo-assemblee-hogne.jpg') }}"
-                 alt="Assemblée évangélique de Hogne"
-                 class="logo-nav me-2">
+            <span class="logo-wrapper me-2">
+                <img src="{{ asset('images/logo-assemblee-hogne.jpg') }}"
+                    alt="Assemblée évangélique de Hogne"
+                    class="logo-nav">
+            </span>
             <span class="d-none d-sm-inline">
                 Assemblée évangélique de Hogne.
             </span>
         </a>
+
 
         {{-- Bouton burger standard Bootstrap, avec style perso --}}
         <button class="navbar-toggler custom-toggler"

@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     position: relative;
     border-radius: 16px; /* coins plus modernes */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12); /* ombre douce pro */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.14); /* ombre douce pro */
     animation: heroFadeIn 0.9s ease-out both; /* petite anim d'entrée */
 }
 
@@ -64,6 +64,38 @@
     }
 }
 
+/* --- Styles harmonisés pour toutes les cartes --- */
+.card,
+.verse-card,
+.home-events .card {
+    background-color: #fff7e6 ; /* blanc doux / premium */
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    border: none;
+}
+
+/* Option : un léger padding pour respirer */
+.verse-card .card-body,
+.home-events .card-body {
+    padding: 2rem;
+}
+
+
+/* Section bienvenue */
+.welcome-section .card {
+    background-color: #fff7e6; /* très léger ton chaud, cohérent avec le reste */
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.welcome-section .welcome-text .card-body {
+    line-height: 1.7;
+}
+
+.welcome-section .welcome-info .card-body {
+    font-size: 0.95rem;
+}
+
 /* Responsive pour téléphones */
 @media (max-width: 576px) {
     .hero-fullwidth {
@@ -85,3 +117,5 @@
         font-size: 0.9rem;
     }
 }
+
+
