@@ -1,0 +1,87 @@
+/* HERO pleine largeur */
+.hero-fullwidth {
+    width: 100%;
+    height: 320px; /* moins haut, plus dynamique */
+    background-image: url('/images/Bandeau_Hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 16px; /* coins plus modernes */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12); /* ombre douce pro */
+    animation: heroFadeIn 0.9s ease-out both; /* petite anim d'entrée */
+}
+
+/* Voile doux pour lisibilité du texte */
+.hero-fullwidth .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.22); /* voile un peu plus léger */
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 24px; /* contenu légèrement remonté */
+}
+
+/* Logo */
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+/* Titre */
+.hero-title {
+    color: #333;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+/* Sous-titre */
+.hero-subtitle {
+    color: #333;
+    font-size: 1.02rem;
+    margin: 0;
+}
+
+/* Animation d'apparition */
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive pour téléphones */
+@media (max-width: 576px) {
+    .hero-fullwidth {
+        height: 240px;
+        border-radius: 0; /* souvent plus propre bord à bord sur mobile */
+    }
+
+    .hero-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        letter-spacing: normal;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+}

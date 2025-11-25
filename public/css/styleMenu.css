@@ -1,4 +1,14 @@
-/* --- NAV : liens (soulignement + ligne verte animée) --- */
+/* --- NAV : logo + liens --- */
+
+/* Logo dans la navbar */
+.logo-nav {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Liens du menu : soulignement + ligne verte animée */
 .custom-nav-link {
     position: relative;
     margin: 0 1rem;
@@ -22,16 +32,10 @@
     width: 100%;
 }
 
-/* --- Checkbox de contrôle du menu (cachée) --- */
-.nav-toggle {
-    display: none;
-}
-
-/* --- Bouton burger --- */
+/* Bouton burger */
 .custom-toggler {
     border: none;
     padding: 0.25rem 0.5rem;
-    display: none; /* caché par défaut (desktop) */
 }
 
 .custom-toggler:focus {
@@ -47,49 +51,16 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- Layout desktop (>= 992px) --- */
-@media (min-width: 992px) {
-    #mainNavbar {
-        display: flex !important;
-    }
+/* Animation burger -> croix quand le menu est ouvert
+   (Bootstrap met aria-expanded="true" automatiquement) */
+.navbar-toggler[aria-expanded="true"] .toggler-icon:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
 }
 
-/* --- Layout mobile/tablette (< 992px) --- */
-@media (max-width: 991.98px) {
-
-    .custom-toggler {
-        display: inline-block;
-    }
-
-    #mainNavbar {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-
-    /* Quand on coche le burger -> menu ouvert */
-    .nav-toggle:checked ~ #mainNavbar {
-        max-height: 400px; /* ajuste si ton menu est plus grand */
-    }
-
-    /* Burger -> croix lorsque menu ouvert */
-    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle:checked + .custom-toggler .toggler-icon:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Option : ouvrir au survol sur les écrans avec souris */
-    @media (hover: hover) {
-        .navbar:hover .nav-toggle:not(:checked) ~ #mainNavbar {
-            max-height: 400px;
-        }
-    }
+.navbar-toggler[aria-expanded="true"] .toggler-icon:nth-child(2) {
+    opacity: 0;
 }
 
+.navbar-toggler[aria-expanded="true"] .toggler-icon:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}

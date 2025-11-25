@@ -5,11 +5,16 @@
     <title>@yield('title', 'Assemblée')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- Favicon--}}
+    <link rel="icon" type="image/jpeg" href="{{ asset('images/logo-assemblee-hogne.jpg') }}">
+
     {{-- Bootstrap via CDN pour commencer --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    {{-- Style css --}}
     <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/styleFooter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
 
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -17,19 +22,29 @@
 {{-- Nav manu --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('accueil') }}">Assemblée évangélique</a>
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('accueil') }}">
+            <img src="{{ asset('images/logo-assemblee-hogne.jpg') }}"
+                 alt="Assemblée évangélique de Hogne"
+                 class="logo-nav me-2">
+            <span class="d-none d-sm-inline">
+                Assemblée évangélique de Hogne.
+            </span>
+        </a>
 
-        {{-- Checkbox cachée pour contrôler l’ouverture du menu --}}
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-
-        {{-- Bouton burger lié à la checkbox --}}
-        <label class="navbar-toggler custom-toggler" for="nav-toggle" aria-label="Basculer la navigation">
+        {{-- Bouton burger standard Bootstrap, avec style perso --}}
+        <button class="navbar-toggler custom-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Basculer la navigation">
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
-        </label>
+        </button>
 
-        <div class="navbar-collapse" id="mainNavbar">
+        <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link custom-nav-link" href="{{ route('accueil') }}">Accueil</a>
@@ -48,6 +63,7 @@
     </div>
 </nav>
 
+
   {{-- Prochain evenements --}}
 <div class="container mb-5">
     @yield('content')
@@ -60,7 +76,7 @@
         <div class="row text-center text-md-start">
             <div class="col-md-4 mb-3">
                 <h6 class="footer-title">Assemblée évangélique</h6>
-                <p class="footer-description">Un lieu de prière, d’enseignement, de communion fraternelle.</p>
+                <p class="footer-description">Nous vous acceuillons pour le culte le dimanche à 10h30.</p>
             </div>
 
             <div class="col-md-4 mb-3">
@@ -86,5 +102,7 @@
     </div>
 </footer>
 
+    {{-- Bootstrap JS via CDN --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

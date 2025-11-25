@@ -3,13 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Verset;
+use Carbon\Carbon;
 
 class PageController extends Controller
 {
     public function accueil()
     {
         $page = Page::where('slug', 'accueil')->firstOrFail();
-        return view('pages.accueil', compact('page'));
+
+        $dayOfYear = Carbon::now()->dayOfYear; // 1..365
+
+        $versetDuJour = Verset::where('jour_index', $dayOfYear)->first()
+            ?? Verset::inRandomOrder()->first();
+
+        return view('pages.accueil', [
+            'page'         => $page,
+            'versetDuJour' => $versetDuJour,
+        ]);
     }
 
     public function aPropos()
