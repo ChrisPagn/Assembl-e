@@ -86,27 +86,33 @@
   {{-- Footer --}}
 <footer class="footer-links mt-auto">
     <div class="container">
-        <div class="row text-center text-md-start">
-            <div class="col-md-4 mb-3">
+
+        {{-- Ligne du haut : infos assemblée + contact --}}
+        <div class="row align-items-start text-center text-md-start">
+            <div class="col-md-6 mb-3">
                 <h6 class="footer-title">Assemblée évangélique</h6>
-                <p class="footer-description">Nous vous acceuillons pour le culte le dimanche à 10h30.</p>
+                <p class="footer-description">
+                    Nous vous acceuillons pour le culte le dimanche à 10h30.
+                </p>
             </div>
 
-            <div class="col-md-4 mb-3">
-                <h6 class="footer-title">Liens rapides</h6>
-                <ul class="footer-list">
-                    <li><a href="{{ route('accueil') }}">Accueil</a></li>
-                    <li><a href="{{ route('a-propos') }}">À propos</a></li>
-                    <li><a href="{{ route('evenements') }}">Événements</a></li>
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3 text-md-end">
                 <h6 class="footer-title">Contact</h6>
                 <p>Email : info@assemblee.be</p>
                 <p>Adresse : Rue Exemple 12, 5000 Namur</p>
             </div>
+        </div>
+
+         <hr class="footer-separator">
+
+        {{-- Liens centrés --}}
+        <div class="footer-nav-center">
+            <ul class="footer-inline">
+                <li><a href="{{ route('accueil') }}">Accueil</a></li>
+                <li><a href="{{ route('a-propos') }}">À propos</a></li>
+                <li><a href="{{ route('evenements') }}">Événements</a></li>
+                <li><a href="{{ route('contact') }}">Contact</a></li>
+            </ul>
         </div>
 
         <hr class="footer-separator">
@@ -115,11 +121,17 @@
     </div>
 </footer>
 
-    {{-- Bootstrap JS via CDN --}}
+
+{{-- Bootstrap JS via CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 {{-- Script de transitions --}}
 <script src="{{ asset('js/page-transitions.js') }}"></script>
+
+{{-- Script de fade-scroll --}}
+<script src="{{ asset('js/fade-scroll.js') }}"></script>
+
+
 
 </body>
 </html>

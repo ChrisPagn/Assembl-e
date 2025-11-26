@@ -75,3 +75,16 @@ body.page-loaded {
         opacity: 0;
     }
 }
+
+/* --- Animations globales : fade + scroll --- */
+
+.fade-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

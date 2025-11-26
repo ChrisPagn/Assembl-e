@@ -1,6 +1,7 @@
 .footer-links {
     background: #f4f5f7;
     padding: 40px 0 20px;
+    border-top: 3px solid #dac27a;
 }
 
 .footer-title {
@@ -13,22 +14,33 @@
     color: #666;
 }
 
-.footer-list {
+/* Bloc des liens centrés */
+.footer-nav-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Liens sur une seule ligne */
+.footer-inline {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: inline-block; /* pour être centré dans footer-nav-center */
 }
 
-.footer-list li {
-    margin-bottom: 5px;
+.footer-inline li {
+    display: inline-block;
+    margin: 0 12px;
 }
 
-.footer-list a {
+.footer-inline a {
     text-decoration: none;
-    color: #28a745;
+    color: #666;
 }
 
-.footer-list a:hover {
+.footer-inline a:hover {
     text-decoration: underline;
+    color: #dac27a;
 }
 
 .footer-separator {

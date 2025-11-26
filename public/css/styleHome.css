@@ -10,6 +10,7 @@
     border-radius: 16px; /* coins plus modernes */
     box-shadow: 0 10px 25px rgba(0,0,0,0.14); /* ombre douce pro */
     animation: heroFadeIn 0.9s ease-out both; /* petite anim d'entrée */
+    margin-top: 70px;
 }
 
 /* Voile doux pour lisibilité du texte */
@@ -72,6 +73,7 @@
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     border: none;
+    margin-top: 30px;
 }
 
 /* Option : un léger padding pour respirer */

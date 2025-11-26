@@ -5,7 +5,7 @@
 @section('content')
 
    {{-- HERO pleine largeur --}}
-    <section class="hero-fullwidth">
+    <section class="hero-fullwidth fade-scroll">
         <div class="hero-overlay text-center">
             <img src="{{ asset('images/Logo_Colombe.png') }}"
                 alt="Assemblée évangélique de Hogne"
@@ -19,7 +19,7 @@
 
 
 {{-- Verset du jour --}}
-<section class="verse-of-day my-5">
+<section class="verse-of-day my-5 fade-scroll">
     <div class="card border-0 shadow-sm verse-card">
         <div class="card-body text-center">
             <h2 class="h5 mb-3 text-uppercase text-muted">Verset du jour</h2>
@@ -43,7 +43,7 @@
 
     {{-- Contenu de la page (texte géré dans le back-office) --}}
     {{-- Section de bienvenue --}}
-<section class="welcome-section my-5">
+<section class="welcome-section my-5 fade-scroll">
     <div class="row g-4 align-items-stretch">
 
         {{-- Texte de bienvenue --}}
@@ -86,7 +86,7 @@
 
 
     {{-- Prochains événements --}}
-    <section class="home-events py-4">
+    <section class="home-events py-4 fade-scroll">
         <div class="card border-0 shadow-sm">
             <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center">
                 <div>
