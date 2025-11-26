@@ -1,15 +1,15 @@
 /* HERO pleine largeur */
 .hero-fullwidth {
     width: 100%;
-    height: 320px; /* moins haut, plus dynamique */
+    height: 320px;
     background-image: url('/images/Bandeau_Hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    border-radius: 16px; /* coins plus modernes */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.14); /* ombre douce pro */
-    animation: heroFadeIn 0.9s ease-out both; /* petite anim d'entrée */
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+    animation: heroFadeIn 0.9s ease-out both;
     margin-top: 70px;
 }
 
@@ -17,14 +17,14 @@
 .hero-fullwidth .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.22); /* voile un peu plus léger */
+    background: rgba(255,255,255,0.22);
     backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 40px;
-    padding-bottom: 24px; /* contenu légèrement remonté */
+    padding-bottom: 24px;
 }
 
 /* Logo */
@@ -69,7 +69,7 @@
 .card,
 .verse-card,
 .home-events .card {
-    background-color: #fff7e6 ; /* blanc doux / premium */
+    background-color: #fff7e6;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     border: none;
@@ -82,10 +82,9 @@
     padding: 2rem;
 }
 
-
 /* Section bienvenue */
 .welcome-section .card {
-    background-color: #fff7e6; /* très léger ton chaud, cohérent avec le reste */
+    background-color: #fff7e6;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
@@ -102,7 +101,7 @@
 @media (max-width: 576px) {
     .hero-fullwidth {
         height: 240px;
-        border-radius: 0; /* souvent plus propre bord à bord sur mobile */
+        border-radius: 0;
     }
 
     .hero-logo {
@@ -120,4 +119,46 @@
     }
 }
 
+/* Mini cartes événements sur la home */
+.event-mini-card {
+    background-color: #fffdf8;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    margin-bottom: 1.5rem; /* AJOUTÉ : espace en dessous de chaque carte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Bonus: animation au survol */
+}
 
+/* Effet au survol (optionnel mais agréable) */
+.event-mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+}
+
+/* Bloc date compact */
+.event-date-mini {
+    min-width: 46px;
+    padding: 4px 0;
+    border-radius: 12px;
+    background: #fff7e0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 0.8rem;
+}
+
+.event-day-mini {
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.1;
+}
+
+.event-month-mini {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    color: #777;
+}
+
+.g-3, .gx-3 {
+    --bs-gutter-x: 1rem;
+    margin-bottom: 60px;
+}

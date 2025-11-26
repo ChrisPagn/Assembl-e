@@ -1,0 +1,32 @@
+.event-card {
+    background-color: #fff7e6;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+    border: none;
+}
+
+.event-date {
+    min-width: 60px;
+    background: #fff3d6;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.event-day {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-month {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.month-title {
+    border-left: 4px solid #e1c47a;
+    padding-left: 0.75rem;
+    font-weight: 600;
+}

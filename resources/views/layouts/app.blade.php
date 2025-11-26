@@ -12,10 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     {{-- Style css --}}
+     <link rel="stylesheet" href="{{ asset('css/styleAbout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleApp.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/styleFooter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}"> 
 
 </head>
 <body class="d-flex flex-column min-vh-100">
