@@ -10,6 +10,7 @@
 
     {{-- Bootstrap via CDN pour commencer --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     {{-- Style css --}}
      <link rel="stylesheet" href="{{ asset('css/styleAbout.css') }}">
@@ -72,6 +73,19 @@
                 <li class="nav-item">
                     <a class="nav-link custom-nav-link" href="{{ route('contact') }}">Contact</a>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link text-warning" href="{{ route('admin.dashboard') }}">
+                            <i class="bi bi-speedometer2"></i> Admin
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link text-info" href="{{ route('login') }}">
+                            <i class="bi bi-box-arrow-in-right"></i> Connexion
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
