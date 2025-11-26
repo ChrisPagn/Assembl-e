@@ -69,6 +69,24 @@
             </div>
         </div>
     </div>
+
+    @if(auth()->user()->isAdmin())
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted mb-2">Timeline</h6>
+                        <h3 class="mb-0">{{ $stats['timeline_events'] }}</h3>
+                    </div>
+                    <div class="text-danger" style="font-size: 2.5rem;">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
 
 <div class="row g-4">
@@ -131,6 +149,79 @@
         </div>
     </div>
 </div>
+
+@if(auth()->user()->isAdmin())
+<div class="row g-4 mt-4">
+    <!-- Timeline Events -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Événements de la Timeline</h5>
+                <a href="{{ route('admin.timeline.index') }}" class="btn btn-sm btn-outline-primary">
+                    Voir tout <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                @forelse($timelineEvents as $timeline)
+                    <div class="d-flex align-items-start mb-3 pb-3 border-bottom">
+                        <div class="text-center me-3 text-danger" style="min-width: 40px;">
+                            <i class="bi bi-clock-history" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="mb-1">{{ $timeline->titre }}</h6>
+                                    <p class="text-muted small mb-0">
+                                        <i class="bi bi-calendar3"></i> {{ $timeline->annee }}
+                                    </p>
+                                </div>
+                                <span class="badge bg-secondary">Ordre: {{ $timeline->ordre }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-muted mb-0">Aucun événement dans la timeline.</p>
+                @endforelse
+            </div>
+        </div>
+    </div>
+
+    <!-- Versets Statistics -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Versets Bibliques</h5>
+                <a href="{{ route('admin.versets.index') }}" class="btn btn-sm btn-outline-primary">
+                    Voir tout <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="text-center py-3">
+                    <i class="bi bi-book text-info" style="font-size: 3rem;"></i>
+                    <h3 class="mt-3">{{ $stats['versets'] }} / 365</h3>
+                    <p class="text-muted mb-0">versets enregistrés</p>
+                    @if($stats['versets'] < 365)
+                        <div class="progress mt-3" style="height: 25px;">
+                            <div class="progress-bar bg-info" role="progressbar"
+                                 style="width: {{ ($stats['versets'] / 365) * 100 }}%"
+                                 aria-valuenow="{{ $stats['versets'] }}" aria-valuemin="0" aria-valuemax="365">
+                                {{ round(($stats['versets'] / 365) * 100, 1) }}%
+                            </div>
+                        </div>
+                        <p class="text-muted small mt-2">
+                            {{ 365 - $stats['versets'] }} versets restants pour compléter l'année
+                        </p>
+                    @else
+                        <div class="alert alert-success mt-3 mb-0">
+                            <i class="bi bi-check-circle"></i> Tous les versets de l'année sont complétés !
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 
 <div class="row g-4 mt-4">
     <div class="col-12">

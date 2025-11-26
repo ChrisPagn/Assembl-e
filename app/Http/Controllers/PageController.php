@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\Verset;
 use App\Models\Event;
+use App\Models\TimelineEvent;
 use Carbon\Carbon;
 
 class PageController extends Controller
@@ -41,27 +42,15 @@ class PageController extends Controller
     {
         $page = Page::where('slug', 'a-propos')->firstOrFail();
 
-        // Plus tard, tu pourras charger ça depuis une table "histoire_assemblee"
-        $etapes = [
-            [
-                'annee'   => '2025 avril - mai ',
-                'titre'   => 'Premières réunions de maison',
-                'image'   => 'histoire_1995.jpg',
-                'texte'   => 'Quelques familles se réunissent pour la prière et l\'étude biblique.'
-            ],
-            [
-                'annee'   => '2025 juin',
-                'titre'   => 'Ouverture de l\'assemblée de Hogne',
-                'image'   => 'histoire_2005.jpg',
-                'texte'   => 'Nous avons décidés de nous rassemblée en tant qu\'église.'
-            ],
-            [
-                'annee'   => '2025 août',
-                'titre'   => 'Développement des activités',
-                'image'   => 'histoire_2020.jpg',
-                'texte'   => 'Mise en place d\'études bibliques, groupes de jeunes, et actions de soutien.'
-            ],
-        ];
+        // Charger les événements de la timeline depuis la base de données
+        $etapes = TimelineEvent::orderBy('ordre')->get()->map(function($event) {
+            return [
+                'annee'   => $event->annee,
+                'titre'   => $event->titre,
+                'image'   => $event->image,
+                'texte'   => $event->description,
+            ];
+        });
 
         return view('pages.a-propos', [
             'page'   => $page,

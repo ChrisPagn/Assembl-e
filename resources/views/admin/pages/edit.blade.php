@@ -36,7 +36,7 @@
 
                     <div class="mb-3">
                         <label for="contenu_html" class="form-label">Contenu HTML</label>
-                        <textarea class="form-control tinymce-editor @error('contenu_html') is-invalid @enderror"
+                        <textarea class="form-control @error('contenu_html') is-invalid @enderror"
                                   id="contenu_html" name="contenu_html" rows="15">{{ old('contenu_html', $page->contenu_html) }}</textarea>
                         <div class="form-text">Contenu HTML de la page</div>
                         @error('contenu_html')
@@ -59,21 +59,3 @@
 </div>
 @endsection
 
-@push('scripts')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '.tinymce-editor',
-        height: 500,
-        menubar: true,
-        plugins: [
-            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-            'insertdatetime', 'media', 'table', 'help', 'wordcount'
-        ],
-        toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-        language: 'fr_FR'
-    });
-</script>
-@endpush

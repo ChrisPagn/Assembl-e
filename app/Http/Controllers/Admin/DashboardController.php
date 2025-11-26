@@ -28,6 +28,10 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        return view('admin.dashboard', compact('stats', 'recentContacts', 'upcomingEvents'));
+        $timelineEvents = TimelineEvent::orderBy('ordre')
+            ->take(5)
+            ->get();
+
+        return view('admin.dashboard', compact('stats', 'recentContacts', 'upcomingEvents', 'timelineEvents'));
     }
 }
