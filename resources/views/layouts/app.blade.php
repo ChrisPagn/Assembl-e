@@ -79,8 +79,10 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link custom-nav-link text-warning" href="{{ route('admin.dashboard') }}">
-                            <i class="bi bi-speedometer2"></i> Admin
+                        <a class="nav-link custom-nav-link"
+                           style="color: {{ auth()->user()->isAdmin() ? '#28a745' : '#17a2b8' }} !important;"
+                           href="{{ route('admin.dashboard') }}">
+                            <i class="bi bi-speedometer2"></i> {{ auth()->user()->isAdmin() ? 'Admin' : auth()->user()->name }}
                         </a>
                     </li>
                 @else

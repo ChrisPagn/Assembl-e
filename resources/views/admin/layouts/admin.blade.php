@@ -157,6 +157,10 @@
             <a href="{{ route('admin.versets.index') }}" class="nav-link {{ request()->routeIs('admin.versets.*') ? 'active' : '' }}">
                 <i class="bi bi-book"></i> Versets
             </a>
+
+            <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                <i class="bi bi-people"></i> Utilisateurs
+            </a>
             @endif
 
             <a href="{{ route('admin.contacts.index') }}" class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">

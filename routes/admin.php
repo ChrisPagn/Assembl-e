@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\TimelineController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\FooterController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.')->group(function () {
@@ -46,5 +47,10 @@ Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.
     Route::middleware('admin')->group(function () {
         Route::get('footer', [FooterController::class, 'edit'])->name('footer.edit');
         Route::put('footer', [FooterController::class, 'update'])->name('footer.update');
+    });
+
+    // Gestion des utilisateurs (Admin uniquement)
+    Route::middleware('admin')->group(function () {
+        Route::resource('users', UserController::class);
     });
 });
