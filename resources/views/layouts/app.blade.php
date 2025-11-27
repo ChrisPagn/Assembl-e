@@ -109,16 +109,16 @@
         {{-- Ligne du haut : infos assemblée + contact --}}
         <div class="row align-items-start text-center text-md-start">
             <div class="col-md-6 mb-3">
-                <h6 class="footer-title">Assemblée évangélique</h6>
+                <h6 class="footer-title">{{ setting('footer_title', 'Assemblée évangélique') }}</h6>
                 <p class="footer-description">
-                    Nous vous acceuillons pour le culte le dimanche à 10h30.
+                    {{ setting('footer_description', 'Nous vous acceuillons pour le culte le dimanche à 10h30.') }}
                 </p>
             </div>
 
             <div class="col-md-6 mb-3 text-md-end">
                 <h6 class="footer-title">Contact</h6>
-                <p>Email : info@assemblee.be</p>
-                <p>Adresse : Rue Exemple 12, 5000 Namur</p>
+                <p>Email : {{ setting('footer_email', 'info@assemblee.be') }}</p>
+                <p>Adresse : {{ setting('footer_adresse', 'Rue Exemple 12, 5000 Namur') }}</p>
             </div>
         </div>
 
@@ -136,7 +136,7 @@
 
         <hr class="footer-separator">
 
-        <p class="footer-copy text-center">&copy; {{ date('Y') }} Assemblée évangélique</p>
+        <p class="footer-copy text-center">&copy; {{ date('Y') }} {{ setting('footer_copyright', 'Assemblée évangélique') }}</p>
     </div>
 </footer>
 

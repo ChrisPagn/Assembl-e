@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\VersetController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\TimelineController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\FooterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.')->group(function () {
@@ -39,5 +40,11 @@ Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.
     Route::middleware('admin')->group(function () {
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+    });
+
+    // Gestion du footer (Admin uniquement)
+    Route::middleware('admin')->group(function () {
+        Route::get('footer', [FooterController::class, 'edit'])->name('footer.edit');
+        Route::put('footer', [FooterController::class, 'update'])->name('footer.update');
     });
 });

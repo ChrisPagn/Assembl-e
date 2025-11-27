@@ -169,7 +169,11 @@
             </a>
 
             <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
-                <i class="bi bi-palette"></i> Paramètres
+                <i class="bi bi-palette"></i> Apparence
+            </a>
+
+            <a href="{{ route('admin.footer.edit') }}" class="nav-link {{ request()->routeIs('admin.footer.*') ? 'active' : '' }}">
+                <i class="bi bi-layout-text-window"></i> Footer
             </a>
             @endif
 

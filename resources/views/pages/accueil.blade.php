@@ -12,7 +12,7 @@
                 class="hero-logo mb-3">
             <h1 class="hero-title">{{ $page->titre }}</h1>
             <p class="hero-subtitle">
-                Un lieu de prière, d’enseignement et de communion fraternelle.
+                {{ $page->hero_subtitle ?? 'Un lieu de prière, d\'enseignement et de communion fraternelle.' }}
             </p>
         </div>
     </section>
@@ -63,17 +63,16 @@
 
                         <p class="mb-2">
                             <strong>Culte du dimanche</strong><br>
-                            10h30 – temps de louange, prière et prédication.
+                            {{ $page->info_culte ?? '10h30 – temps de louange, prière et prédication.' }}
                         </p>
 
                         <p class="mb-2">
                             <strong>Adresse</strong><br>
-                            Rue Exemple 12<br>
-                            5000 Namur
+                            {!! $page->info_adresse ?? 'Rue Exemple 12<br>5000 Namur' !!}
                         </p>
 
                         <p class="mb-0 text-muted" style="font-size: 0.9rem;">
-                            Vous êtes les bienvenus, que vous soyez habitué ou simplement en recherche.
+                            {{ $page->info_message ?? 'Vous êtes les bienvenus, que vous soyez habitué ou simplement en recherche.' }}
                         </p>
                     </div>
                 </div>

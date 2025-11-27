@@ -125,6 +125,73 @@ class SettingsSeeder extends Seeder
                 'label' => 'Police des Titres',
                 'description' => 'Police utilisée pour les titres (H1, H2, etc.)',
             ],
+
+            // Contenus - Page Accueil
+            [
+                'key' => 'home_hero_subtitle',
+                'value' => 'Un lieu de prière, d\'enseignement et de communion fraternelle.',
+                'type' => 'text',
+                'label' => 'Sous-titre Hero (Accueil)',
+                'description' => 'Sous-titre affiché dans la bannière de la page d\'accueil',
+            ],
+            [
+                'key' => 'home_info_culte',
+                'value' => '10h30 – temps de louange, prière et prédication.',
+                'type' => 'text',
+                'label' => 'Info Culte (Accueil)',
+                'description' => 'Informations sur le culte du dimanche',
+            ],
+            [
+                'key' => 'home_info_adresse',
+                'value' => 'Rue Exemple 12<br>5000 Namur',
+                'type' => 'textarea',
+                'label' => 'Adresse (Accueil)',
+                'description' => 'Adresse de l\'assemblée (HTML autorisé)',
+            ],
+            [
+                'key' => 'home_info_message',
+                'value' => 'Vous êtes les bienvenus, que vous soyez habitué ou simplement en recherche.',
+                'type' => 'text',
+                'label' => 'Message d\'accueil',
+                'description' => 'Message d\'accueil dans les infos pratiques',
+            ],
+
+            // Contenus - Footer
+            [
+                'key' => 'footer_title',
+                'value' => 'Assemblée évangélique',
+                'type' => 'text',
+                'label' => 'Titre Footer',
+                'description' => 'Titre principal du footer',
+            ],
+            [
+                'key' => 'footer_description',
+                'value' => 'Nous vous acceuillons pour le culte le dimanche à 10h30.',
+                'type' => 'text',
+                'label' => 'Description Footer',
+                'description' => 'Description dans le footer',
+            ],
+            [
+                'key' => 'footer_email',
+                'value' => 'info@assemblee.be',
+                'type' => 'text',
+                'label' => 'Email Footer',
+                'description' => 'Adresse email de contact',
+            ],
+            [
+                'key' => 'footer_adresse',
+                'value' => 'Rue Exemple 12, 5000 Namur',
+                'type' => 'text',
+                'label' => 'Adresse Footer',
+                'description' => 'Adresse complète dans le footer',
+            ],
+            [
+                'key' => 'footer_copyright',
+                'value' => 'Assemblée évangélique',
+                'type' => 'text',
+                'label' => 'Copyright Footer',
+                'description' => 'Texte du copyright',
+            ],
         ];
 
         foreach ($settings as $setting) {

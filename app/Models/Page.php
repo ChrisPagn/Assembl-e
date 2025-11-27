@@ -13,5 +13,9 @@ class Page extends Model
         'slug',
         'titre',
         'contenu_html',
+        'hero_subtitle',
+        'info_culte',
+        'info_adresse',
+        'info_message',
     ];
 }

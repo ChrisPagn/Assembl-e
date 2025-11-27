@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- Polices -->
-                    <div class="mb-4">
+                    <div class="mb-5">
                         <h6 class="border-bottom pb-2 mb-3">
                             <i class="bi bi-fonts text-success"></i> Typographie
                         </h6>

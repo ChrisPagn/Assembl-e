@@ -44,6 +44,10 @@ class PageController extends Controller
             'slug' => 'required|string|max:255|unique:pages,slug,' . $page->id,
             'titre' => 'required|string|max:255',
             'contenu_html' => 'nullable|string',
+            'hero_subtitle' => 'nullable|string',
+            'info_culte' => 'nullable|string',
+            'info_adresse' => 'nullable|string',
+            'info_message' => 'nullable|string',
         ]);
 
         $page->update($validated);
