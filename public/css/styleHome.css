@@ -38,7 +38,7 @@
 
 /* Titre */
 .hero-title {
-    color: #333;
+    color: var(--color-text-primary, #333) !important;
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -48,7 +48,7 @@
 
 /* Sous-titre */
 .hero-subtitle {
-    color: #333;
+    color: var(--color-text-primary, #333) !important;
     font-size: 1.02rem;
     margin: 0;
 }
@@ -69,7 +69,7 @@
 .card,
 .verse-card,
 .home-events .card {
-    background-color: #fff7e6;
+    background-color: var(--color-card-bg, #fff7e6) !important;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     border: none;
@@ -84,7 +84,7 @@
 
 /* Section bienvenue */
 .welcome-section .card {
-    background-color: #fff7e6;
+    background-color: var(--color-card-bg, #fff7e6) !important;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
@@ -121,7 +121,7 @@
 
 /* Mini cartes événements sur la home */
 .event-mini-card {
-    background-color: #fffdf8;
+    background-color: var(--color-card-bg, #fffdf8) !important;
     border-radius: 14px;
     border: none;
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
@@ -140,7 +140,7 @@
     min-width: 46px;
     padding: 4px 0;
     border-radius: 12px;
-    background: #fff7e0;
+    background: var(--color-card-bg, #fff7e0) !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     font-size: 0.8rem;
 }
@@ -155,7 +155,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.7rem;
-    color: #777;
+    color: var(--color-text-secondary, #777) !important;
 }
 
 .g-3, .gx-3 {

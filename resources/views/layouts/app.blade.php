@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="{{ asset('css/styleApp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleFooter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/styleMenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleButtons.css') }}">
+
+    {{-- CSS personnalisé dynamique - DOIT ÊTRE EN DERNIER pour écraser les valeurs --}}
+    <link rel="stylesheet" href="{{ route('custom.css') }}"> 
 
 </head>
 <body class="d-flex flex-column min-vh-100">

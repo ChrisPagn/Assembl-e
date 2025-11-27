@@ -4,7 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\StyleController;
 use Illuminate\Support\Facades\Route;
+
+// CSS personnalisé dynamique
+Route::get('/css/custom.css', [StyleController::class, 'customCss'])->name('custom.css');
 
 // Routes publiques du site
 Route::get('/', [PageController::class, 'accueil'])->name('accueil');

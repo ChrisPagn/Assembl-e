@@ -1,17 +1,17 @@
 .footer-links {
-    background: #f4f5f7;
+    background: var(--color-footer-bg, #f4f5f7) !important;
     padding: 40px 0 20px;
-    border-top: 3px solid #dac27a;
+    border-top: 3px solid var(--color-accent-gold, #dac27a) !important;
 }
 
 .footer-title {
     font-weight: bold;
-    color: #333;
+    color: var(--color-text-primary, #333) !important;
 }
 
 .footer-description {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-text-secondary, #666) !important;
 }
 
 /* Bloc des liens centrés */
@@ -35,12 +35,12 @@
 
 .footer-inline a {
     text-decoration: none;
-    color: #666;
+    color: var(--color-link, #666) !important;
 }
 
 .footer-inline a:hover {
     text-decoration: underline;
-    color: #dac27a;
+    color: var(--color-link-hover, #dac27a) !important;
 }
 
 .footer-separator {
@@ -50,5 +50,5 @@
 
 .footer-copy {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-text-secondary, #666) !important;
 }

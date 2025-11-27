@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\VersetController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\TimelineController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.')->group(function () {
@@ -32,5 +33,11 @@ Route::middleware(['auth', 'admin.or.moderator'])->prefix('admin')->name('admin.
     // Gestion de la timeline (Admin uniquement)
     Route::middleware('admin')->group(function () {
         Route::resource('timeline', TimelineController::class);
+    });
+
+    // Gestion des paramètres du site (Admin uniquement)
+    Route::middleware('admin')->group(function () {
+        Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
     });
 });

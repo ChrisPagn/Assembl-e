@@ -1,7 +1,7 @@
 /* Style global du body */
 body {
-    background-color: #faf8f2; /* blanc cassé doux */
-    font-family: Cambria, "Times New Roman", serif;
+    background-color: var(--color-body-bg, #faf8f2) !important; /* blanc cassé doux */
+    font-family: var(--font-primary, Cambria, "Times New Roman", serif) !important;
     opacity: 0;                 /* pour le fade-in */
     transition: opacity 0.3s ease;
 }

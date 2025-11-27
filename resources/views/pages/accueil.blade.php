@@ -100,8 +100,9 @@
                 </div>
 
                 <div class="mt-3 mt-md-0">
-                    <a href="{{ route('evenements') }}" class="btn btn-success">
+                    <a href="{{ route('evenements') }}" class="btn btn-secondary btn-modern">
                         Voir tous les événements
+                        <i class="bi bi-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>

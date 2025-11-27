@@ -1,0 +1,61 @@
+/* Bouton moderne avec flèche animée */
+.btn-modern {
+    position: relative;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation au survol */
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation de la flèche */
+.btn-modern i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-modern:hover i {
+    transform: translateX(5px);
+}
+
+/* Animation du bouton au clic */
+.btn-modern:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Effet de pulse subtil */
+.btn-modern::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-modern:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 576px) {
+    .btn-modern {
+        padding: 10px 22px;
+        font-size: 0.95rem;
+    }
+}

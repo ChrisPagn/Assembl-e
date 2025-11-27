@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS personnalisé dynamique -->
+    <link rel="stylesheet" href="{{ route('custom.css') }}">
 
     <style>
         :root {
@@ -164,6 +166,10 @@
             @if(auth()->user()->isAdmin())
             <a href="{{ route('admin.timeline.index') }}" class="nav-link {{ request()->routeIs('admin.timeline.*') ? 'active' : '' }}">
                 <i class="bi bi-clock-history"></i> Timeline
+            </a>
+
+            <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                <i class="bi bi-palette"></i> Paramètres
             </a>
             @endif
 
