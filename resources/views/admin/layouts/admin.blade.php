@@ -6,6 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Dashboard Admin') - Assemblée Évangélique de Hogne</title>
 
+     {{-- Favicon--}}
+    <link rel="icon" type="image/jpeg" href="{{ asset('images/logo-assemblee-hogne.jpg') }}">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -43,29 +46,37 @@
         }
 
         .sidebar .logo h4 {
-            color: #fff;
+            color: #ffffff !important;
             margin: 0;
             font-size: 1.1rem;
             font-weight: 600;
         }
 
+        .sidebar .logo small {
+            color: #ffffff !important;
+            opacity: 0.85;
+        }
+
         .sidebar .nav-link {
-            color: #bdc3c7;
+            color: #ffffff !important;
             padding: 0.75rem 1.25rem;
             border-left: 3px solid transparent;
             transition: all 0.3s;
+            opacity: 0.9;
         }
 
         .sidebar .nav-link:hover {
             background-color: rgba(255, 255, 255, 0.05);
-            color: #fff;
+            color: #ffffff !important;
             border-left-color: #3498db;
+            opacity: 1;
         }
 
         .sidebar .nav-link.active {
             background-color: rgba(52, 152, 219, 0.1);
-            color: #fff;
+            color: #ffffff !important;
             border-left-color: #3498db;
+            opacity: 1;
         }
 
         .sidebar .nav-link i {

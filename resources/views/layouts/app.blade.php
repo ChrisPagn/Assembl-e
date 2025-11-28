@@ -65,18 +65,36 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link custom-nav-link" href="{{ route('accueil') }}">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-nav-link" href="{{ route('a-propos') }}">À propos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-nav-link" href="{{ route('evenements') }}">Événements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-nav-link" href="{{ route('contact') }}">Contact</a>
-                </li>
+                {{-- Menu dynamique depuis la base de données --}}
+                @foreach($menuPages as $page)
+                    @if($page->children->isNotEmpty())
+                        {{-- Menu avec sous-menu (dropdown) --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link custom-nav-link dropdown-toggle" href="#" id="navbarDropdown{{ $page->id }}"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ $page->menu_titre ?: $page->titre }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown{{ $page->id }}">
+                                {{-- Lien vers la page parent --}}
+                                <li><a class="dropdown-item" href="{{ url($page->slug) }}">{{ $page->menu_titre ?: $page->titre }}</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                {{-- Sous-menus --}}
+                                @foreach($page->children as $child)
+                                    <li><a class="dropdown-item" href="{{ url($child->slug) }}">{{ $child->menu_titre ?: $child->titre }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @else
+                        {{-- Menu simple sans sous-menu --}}
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link" href="{{ url($page->slug) }}">
+                                {{ $page->menu_titre ?: $page->titre }}
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
+
+                {{-- Liens d'authentification --}}
                 @auth
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link"
@@ -129,10 +147,9 @@
         {{-- Liens centrés --}}
         <div class="footer-nav-center">
             <ul class="footer-inline">
-                <li><a href="{{ route('accueil') }}">Accueil</a></li>
-                <li><a href="{{ route('a-propos') }}">À propos</a></li>
-                <li><a href="{{ route('evenements') }}">Événements</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
+                @foreach($menuPages as $page)
+                    <li><a href="{{ url($page->slug) }}">{{ $page->menu_titre ?: $page->titre }}</a></li>
+                @endforeach
             </ul>
         </div>
 

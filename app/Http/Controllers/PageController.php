@@ -64,4 +64,20 @@ class PageController extends Controller
         $page = Page::where('slug', 'contact')->firstOrFail();
         return view('pages.contact', compact('page'));
     }
+
+    /**
+     * Afficher une page dynamique par son slug
+     */
+    public function show($slug)
+    {
+        $page = Page::where('slug', $slug)->firstOrFail();
+
+        // Si c'est une page spécifique avec une méthode dédiée, rediriger
+        if (method_exists($this, $slug)) {
+            return $this->$slug();
+        }
+
+        // Afficher la vue générique pour les pages CMS
+        return view('pages.show', compact('page'));
+    }
 }

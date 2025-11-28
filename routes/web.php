@@ -17,6 +17,9 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/evenements', [EventController::class, 'index'])->name('evenements');
 
+// Route dynamique pour les pages CMS (doit être en dernier)
+Route::get('/{slug}', [PageController::class, 'show'])->name('page.show')->where('slug', '[a-z0-9\-]+');
+
 // Route dashboard Breeze (redirige vers admin)
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -89,6 +89,56 @@
                         </div>
                     @endif
 
+                    <hr class="my-4">
+                    <h6 class="mb-3">Options du Menu</h6>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="visible_au_menu"
+                               name="visible_au_menu" value="1" {{ old('visible_au_menu', $page->visible_au_menu) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="visible_au_menu">
+                            Afficher cette page dans le menu de navigation
+                        </label>
+                    </div>
+
+                    <div class="row" id="menu-options">
+                        <div class="col-md-6 mb-3">
+                            <label for="menu_titre" class="form-label">Titre du menu (optionnel)</label>
+                            <input type="text" class="form-control @error('menu_titre') is-invalid @enderror"
+                                   id="menu_titre" name="menu_titre" value="{{ old('menu_titre', $page->menu_titre) }}">
+                            <div class="form-text">Laissez vide pour utiliser le titre de la page</div>
+                            @error('menu_titre')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="ordre_menu" class="form-label">Ordre d'affichage</label>
+                            <input type="number" class="form-control @error('ordre_menu') is-invalid @enderror"
+                                   id="ordre_menu" name="ordre_menu" value="{{ old('ordre_menu', $page->ordre_menu) }}" min="0">
+                            <div class="form-text">Ordre d'affichage dans le menu (0 = premier)</div>
+                            @error('ordre_menu')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="parent_id" class="form-label">Menu parent (pour créer un sous-menu)</label>
+                            <select class="form-select @error('parent_id') is-invalid @enderror"
+                                    id="parent_id" name="parent_id">
+                                <option value="">-- Menu principal --</option>
+                                @foreach(\App\Models\Page::where('visible_au_menu', true)->whereNull('parent_id')->where('id', '!=', $page->id)->orderBy('ordre_menu')->get() as $parentPage)
+                                    <option value="{{ $parentPage->id }}" {{ old('parent_id', $page->parent_id) == $parentPage->id ? 'selected' : '' }}>
+                                        {{ $parentPage->menu_titre ?: $parentPage->titre }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="form-text">Sélectionnez un menu parent pour créer un sous-menu déroulant</div>
+                            @error('parent_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-check-circle me-2"></i>Enregistrer
